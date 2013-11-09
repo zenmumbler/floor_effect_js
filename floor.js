@@ -74,7 +74,7 @@ function drawFloor(XX) {
 		tex_offset = (v << 10) & 0x3fc00; // tex = 32bit
 		depth_offset = y << 8;
 
-		for (var x=0; x < xmax;	++x) {
+		for (var x=0; x < xmax; ++x) {
 			// line offset into texture
 			u = (a << 2) & 0x3fc;
 			intensity = texpix[tex_offset + u + 1]; // use green channel
@@ -101,7 +101,6 @@ function drawFloor(XX) {
 window.floor = function floor(canvas) {
 	gen_dtable();
 	ctx = canvas.getContext("2d");
-	console.info(canvas.getContext("experimental-webgl"));
 
 	imgdata("Floor.png").then(function(texture) {
 		tex = texture;
