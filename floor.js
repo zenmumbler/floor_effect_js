@@ -21,13 +21,11 @@ var ctx, tex, offscreen,
 	t0;
 
 function img(src) {
-	var image = new Image(),
-		fut = Q.defer();
-
-	image.onload = function() { fut.resolve(image); };
-	image.src = src;
-
-	return fut.promise;
+	return new Promise(function(resolve,reject) {
+		var image = new Image();
+		image.onload = function() { resolve(image); };
+		image.src = src;
+	});
 }
 
 function imgdata(src) {
